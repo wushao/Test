@@ -58,7 +58,7 @@ namespace EFConsole
             //modelBuilder.ComplexType<Address>();
             //base.OnModelCreating(modelBuilder);
 
-           modelBuilder
+          
         }
     }
 }
