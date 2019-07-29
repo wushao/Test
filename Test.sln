@@ -81,8 +81,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "观察者模式", "观察�
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebCore", "WebCore\WebCore.csproj", "{141DD4D4-D1C2-4E87-A19C-5A1884FA35A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{9F41548A-4723-4154-9DF2-567163B11C76}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -197,10 +195,6 @@ Global
 		{141DD4D4-D1C2-4E87-A19C-5A1884FA35A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{141DD4D4-D1C2-4E87-A19C-5A1884FA35A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{141DD4D4-D1C2-4E87-A19C-5A1884FA35A2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9F41548A-4723-4154-9DF2-567163B11C76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9F41548A-4723-4154-9DF2-567163B11C76}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9F41548A-4723-4154-9DF2-567163B11C76}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9F41548A-4723-4154-9DF2-567163B11C76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -236,7 +230,6 @@ Global
 		{1E535B9D-EA6B-49B9-9127-88B547001F73} = {D0A5C5FB-691F-4043-8EE0-73061813105A}
 		{2487E382-4376-4DA0-BB4E-DE9F775DE444} = {2B593B7A-8731-4446-8548-2B5681474577}
 		{141DD4D4-D1C2-4E87-A19C-5A1884FA35A2} = {9BCEDF72-7093-4664-B512-4C2D52D70D2F}
-		{9F41548A-4723-4154-9DF2-567163B11C76} = {9BCEDF72-7093-4664-B512-4C2D52D70D2F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FF4B2665-B2F2-40C1-8C5D-A3886389B2A6}
