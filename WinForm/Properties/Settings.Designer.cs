@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PrintCode.Properties
+namespace WinForm.Properties
 {
 
 

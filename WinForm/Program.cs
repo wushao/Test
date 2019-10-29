@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
+using WinForm.UI;
 
-namespace PrintCode
+namespace WinForm
 {
     static class Program
     {
@@ -15,7 +14,7 @@ namespace PrintCode
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FList());
+            Application.Run(new FormEdit());
         }
     }
 }
