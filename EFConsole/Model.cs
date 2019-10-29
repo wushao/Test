@@ -11,7 +11,7 @@ namespace EFConsole
         public int Id { get; set; }
         public string Name { get; set; }
         public string Url { get; set; }
-        public DateTime? CreateTime{ get; set; }
+        public DateTime? CreateTime { get; set; }
         public double Double { get; set; }
         public float Float { get; set; }
 
@@ -36,7 +36,7 @@ namespace EFConsole
 
         public int DeparmentID { get; set; }
 
-       public virtual Department Department { get; set; }
+        public virtual Department Department { get; set; }
     }
 
     public class Order
@@ -46,16 +46,34 @@ namespace EFConsole
         public string Name { get; set; }
 
         public Address Address { get; set; }
-       
-     
+
+
     }
 
     public class Address
     {
-        public string Street { get; set; } 
+        public string Street { get; set; }
         public string Region { get; set; }
         public string Country { get; set; }
     }
 
+    public class Student
+    {
+        public long Id { get; set; }
 
+        public string Namew { get; set; }
+
+        public virtual StudentContact Contact { get; set; }
+    }
+
+    public class StudentContact
+    {
+        public long Id { get; set; }
+
+        public string ContactNumber { get; set; }
+
+        public virtual Student Student { get; set; }
+
+
+    }
 }
