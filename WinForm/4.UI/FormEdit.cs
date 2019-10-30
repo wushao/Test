@@ -22,5 +22,12 @@ namespace WinForm.UI
         {
             this.panel3.Controls.Add(new UCDatePickerExt());
         }
+
+        private void FormEdit_Load(object sender, EventArgs e)
+        {
+            panel3.Controls.Add(new WinUserControl.FormUserControl());
+        }
+
+       
     }
 }
