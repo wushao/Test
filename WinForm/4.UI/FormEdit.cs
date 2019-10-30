@@ -1,5 +1,4 @@
-﻿using HZH_Controls.Controls;
-using HZH_Controls.Forms;
+﻿using HZH_Controls.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,11 +15,6 @@ namespace WinForm.UI
         public FormEdit()
         {
             InitializeComponent();
-        }
-
-        private void FormEdit_Load(object sender, EventArgs e)
-        {
-            this.panel3.Controls.Add(new UCDatePickerExt());
         }
 
         private void FormEdit_Load(object sender, EventArgs e)
