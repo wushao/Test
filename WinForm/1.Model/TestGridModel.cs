@@ -14,4 +14,9 @@ namespace WinForm.Model
         public int Age { get; set; }
         public List<TestGridModel> Childrens { get; set; }
     }
+
+    public class ColumnModel
+    {
+
+    }
 }

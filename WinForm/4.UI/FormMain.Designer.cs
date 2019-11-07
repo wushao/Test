@@ -196,6 +196,7 @@
             this.BtnImport.TabStop = false;
             this.BtnImport.TipsColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(30)))), ((int)(((byte)(99)))));
             this.BtnImport.TipsText = "";
+            this.BtnImport.BtnClick += new System.EventHandler(this.BtnImport_BtnClick);
             // 
             // BtnDel
             // 
@@ -271,6 +272,7 @@
             this.BtnAdd.TabStop = false;
             this.BtnAdd.TipsColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(30)))), ((int)(((byte)(99)))));
             this.BtnAdd.TipsText = "";
+            this.BtnAdd.BtnClick += new System.EventHandler(this.BtnAdd_BtnClick);
             // 
             // ucPanelQuote2
             // 
@@ -384,7 +386,7 @@
             // 
             // DataGrid
             // 
-            this.DataGrid.AutoRowsScroll = true;
+            this.DataGrid.AutoScroll = true;
             this.DataGrid.BackColor = System.Drawing.Color.White;
             this.DataGrid.Columns = null;
             this.DataGrid.DataSource = null;
@@ -393,17 +395,14 @@
             this.DataGrid.HeadHeight = 40;
             this.DataGrid.HeadPadingLeft = 0;
             this.DataGrid.HeadTextColor = System.Drawing.Color.Black;
-            this.DataGrid.IsCloseAutoHeight = false;
             this.DataGrid.IsShowCheckBox = false;
             this.DataGrid.IsShowHead = true;
             this.DataGrid.Location = new System.Drawing.Point(5, 1);
             this.DataGrid.Name = "DataGrid";
-            this.DataGrid.Page = null;
             this.DataGrid.RowHeight = 40;
             this.DataGrid.RowType = typeof(HZH_Controls.Controls.UCDataGridViewRow);
             this.DataGrid.Size = new System.Drawing.Size(858, 461);
             this.DataGrid.TabIndex = 0;
-            this.DataGrid.SizeChanged += new System.EventHandler(this.DataGrid_SizeChanged);
             // 
             // FormMain
             // 
