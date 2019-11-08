@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using ZXing;
 using ZXing.QrCode;
 
-namespace WinForm._0.Common
+namespace WinForm.Common
 {
     public class QRCodeHelper
     {

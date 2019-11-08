@@ -99,6 +99,7 @@
     <Compile Include="0.Common\ChangeDataHelper.cs" />
     <Compile Include="0.Common\DbHelperSQLite.cs" />
     <Compile Include="0.Common\ExcelHelper.cs" />
+    <Compile Include="0.Common\PrintHelper.cs" />
     <Compile Include="0.Common\QRCodeHelper.cs" />
     <Compile Include="1.Model\AssetsInformationModel.cs" />
     <Compile Include="1.Model\SourceModel.cs" />
@@ -115,7 +116,12 @@
     <Compile Include="4.UI\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="1.Model\TestGridModel.cs" />
+    <Compile Include="4.UI\FormPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="4.UI\FormPrint.Designer.cs">
+      <DependentUpon>FormPrint.cs</DependentUpon>
+    </Compile>
     <Compile Include="4.UI\WinUserControl\FormUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

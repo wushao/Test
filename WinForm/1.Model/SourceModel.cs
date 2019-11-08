@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace WinForm._1.Model
+namespace WinForm.Model
 {
     public enum SourceModel
     {
