@@ -3,59 +3,49 @@ using HZH_Controls.Forms;
 using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
+using WinForm.DAL;
 using WinForm.Model;
 
 namespace WinForm.UI
 {
     public partial class FormMain :  FrmWithTitle
     {
+        string dbPath = $"{Environment.CurrentDirectory}\\AssetsInformation.db";
         public FormMain()
         {
             InitializeComponent();
-            //DataGrid.SizeChanged += DataGrid_SizeChanged;
-            //DataGrid.IsCloseAutoHeight = false;
         }
-
 
         private void FormMain_Load(object sender, EventArgs e)
         {
             List<DataGridViewColumnEntity> lstCulumns = new List<DataGridViewColumnEntity>();
-            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "ID", HeadText = "编号", Width = 70, WidthType = SizeType.Absolute });
-            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "Name", HeadText = "姓名", Width = 50, WidthType = SizeType.Percent });
-            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "Age", HeadText = "年龄", Width = 50, WidthType = SizeType.Percent });
-            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "Birthday", HeadText = "生日", Width = 50, WidthType = SizeType.Percent, Format = (a) => { return ((DateTime)a).ToString("yyyy-MM-dd"); } });
-            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "Sex", HeadText = "性别", Width = 50, WidthType = SizeType.Percent, Format = (a) => { return ((int)a) == 0 ? "女" : "男"; } });
-            //this.DataGrid.Columns = lstCulumns;
-            //this.DataGrid.IsShowCheckBox = true;
-            List<object> lstSource = new List<object>();
-            for (int i = 0; i < 50; i++)
+            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "ID", HeadText = "序号", Width = 70, WidthType = SizeType.Absolute });
+            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "AssetName", HeadText = "资产名称", Width = 50, WidthType = SizeType.Percent });
+            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "AssetCode", HeadText = "资产编码", Width = 50, WidthType = SizeType.Percent });
+            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "ManagementDepartment", HeadText = "管理部门", Width = 50, WidthType = SizeType.Percent });
+            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "UseDepartment", HeadText = "使用部门", Width = 50, WidthType = SizeType.Percent });
+            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "UseState", HeadText = "使用状态", Width = 50, WidthType = SizeType.Percent });
+            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "UseDate", HeadText = "使用年限", Width = 50, WidthType = SizeType.Percent });
+            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "UsePlace", HeadText = "使用地点", Width = 50, WidthType = SizeType.Percent });
+            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "InstallationDate", HeadText = "安装日期", Width = 100, WidthType = SizeType.Percent });
+            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "QdPath", HeadText = "二维码", Width = 100, WidthType = SizeType.Percent });
+            //lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "AssetModel", HeadText = "资产型号", Width = 50, WidthType = SizeType.Percent, Format = (a) => { return ((DateTime)a).ToString("yyyy-MM-dd"); } });
+            //lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "Sex", HeadText = "性别", Width = 50, WidthType = SizeType.Percent, Format = (a) => { return ((int)a) == 0 ? "女" : "男"; } });
+            this.DataGrid.Columns = lstCulumns;
+            this.DataGrid.IsShowCheckBox = true;
+           
+            using (var db = new AssetsInformationDB(dbPath))
             {
-                TestGridModel model = new TestGridModel()
-                {
-                    ID = i.ToString(),
-                    Age = 3 * i,
-                    Name = "姓名——" + i,
-                    Birthday = DateTime.Now.AddYears(-10),
-                    //Sex = i % 2
-                };
-                lstSource.Add(model);
+                var list = db.Query<AssetsInformation>("select * from assetsinformation");
+                DataGrid.DataSource = list;
             }
 
-            //var page = new UCPagerControl2();
-            //page.DataSource = lstSource;
-            //this.DataGrid.Page = page;
-            //this.DataGrid.First();
-        }
+    }
 
-        //private void DataGrid_SizeChanged(object sender, EventArgs e)
-        //{
-        //    if (this.DataGrid.Page != null)
-        //    {
-        //        this.DataGrid.Page.PageSize = this.DataGrid.ShowCount;
-        //        this.DataGrid.DataSource = this.DataGrid.Page.GetCurrentSource();
-        //    }
-        //}
+
 
         private void BtnAdd_BtnClick(object sender, EventArgs e)
         {
@@ -85,6 +75,30 @@ namespace WinForm.UI
                             ExcelWorksheet worksheet = workbook.Worksheets[1];
                             //将worksheet转成datatable
                             dt = Common.ExcelHelper.WorksheetToTable(worksheet);
+                            if (dt != null && dt.Rows.Count > 0)
+                            {
+                                List<AssetsInformation> list = new List<AssetsInformation>();
+                                foreach (DataRow row in dt.Rows)
+                                {
+                                    AssetsInformation entity = new AssetsInformation();
+                                    entity.AssetName = row["资产名称"]?.ToString();
+                                    entity.AssetCode = row["资产编码"]?.ToString();
+                                    entity.AssetModel = row["资产型号"]?.ToString();
+                                    entity.ManagementDepartment = row["管理部门"]?.ToString();
+                                    entity.UseDepartment = row["使用部门"]?.ToString();
+                                    entity.UseState = row["使用状态"]?.ToString();
+                                    entity.UseDate = row["使用年限"]?.ToString();
+                                    entity.UsePlace = row["使用地点"]?.ToString();
+                                    entity.InstallationDate = Convert.ToDateTime(row["安装日期"]?.ToString()).ToLongDateString();
+                                    list.Add(entity);
+                                }
+                               
+                                using (var db = new AssetsInformationDB(dbPath))
+                                {
+                                    int count = db.InsertAll(list);                        
+                                    FrmTips.ShowTips(this, $"{DateTime.Now}, 导入{count}条记录", 3000, true, ContentAlignment.MiddleCenter, null, TipsSizeMode.Large, new Size(300, 100), TipsState.Success);
+                                }
+                            }
                         }
                     }
                 }

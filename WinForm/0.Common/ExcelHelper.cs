@@ -45,13 +45,19 @@ namespace WinForm.Common
                             dt.Columns.Add(columnValue);
                             columnNum++;
                         }
-
                     }
                     //剩下的写入datatable
                     else
                     {
-
-                        dr[j - 1] = worksheet.Cells[i, j].Value?.ToString();
+                        var sl = worksheet.Cells[i, j].Style;
+                        if (j == 9)
+                        {
+                            dr[j - 1] = worksheet.Cells[i, j].GetValue<DateTime>();
+                        }
+                        else
+                        {
+                            dr[j - 1] = worksheet.Cells[i, j].Value?.ToString();
+                        }
                     }
                 }
             }
