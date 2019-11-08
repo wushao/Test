@@ -15,5 +15,15 @@ namespace WinForm.UI.WinUserControl
         {
             InitializeComponent();
         }
+
+        private void FormUserControl_Load(object sender, EventArgs e)
+        {
+
+            List<KeyValuePair<string, string>> lstCom = new List<KeyValuePair<string, string>>();
+            lstCom.Add(new KeyValuePair<string, string>("在职", "在职"));
+            lstCom.Add(new KeyValuePair<string, string>("离职", "离职"));
+            this.ComUseState.Source = lstCom;
+            ComUseState.SelectedIndex = 0;
+        }
     }
 }

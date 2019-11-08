@@ -146,6 +146,7 @@
             this.BtnCreateQr.TabStop = false;
             this.BtnCreateQr.TipsColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(30)))), ((int)(((byte)(99)))));
             this.BtnCreateQr.TipsText = "";
+            this.BtnCreateQr.BtnClick += new System.EventHandler(this.BtnCreateQr_BtnClick);
             // 
             // BtnExport
             // 
@@ -171,6 +172,7 @@
             this.BtnExport.TabStop = false;
             this.BtnExport.TipsColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(30)))), ((int)(((byte)(99)))));
             this.BtnExport.TipsText = "";
+            this.BtnExport.BtnClick += new System.EventHandler(this.BtnExport_BtnClick);
             // 
             // BtnImport
             // 

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using WinForm.DAL;
 using WinForm.Model;
@@ -22,7 +23,7 @@ namespace WinForm.UI
         private void FormMain_Load(object sender, EventArgs e)
         {
             List<DataGridViewColumnEntity> lstCulumns = new List<DataGridViewColumnEntity>();
-            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "ID", HeadText = "序号", Width = 70, WidthType = SizeType.Absolute });
+            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "id", HeadText = "序号", Width = 70, WidthType = SizeType.Absolute });
             lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "AssetName", HeadText = "资产名称", Width = 50, WidthType = SizeType.Percent });
             lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "AssetCode", HeadText = "资产编码", Width = 50, WidthType = SizeType.Percent });
             lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "ManagementDepartment", HeadText = "管理部门", Width = 50, WidthType = SizeType.Percent });
@@ -45,11 +46,10 @@ namespace WinForm.UI
 
     }
 
-
-
         private void BtnAdd_BtnClick(object sender, EventArgs e)
         {
             FormEdit formEdit = new FormEdit();
+            formEdit.RefreshActionn = () => { DataGrid.ReloadSource(); };
             formEdit.ShowDialog();
         }
 
@@ -95,20 +95,42 @@ namespace WinForm.UI
                                
                                 using (var db = new AssetsInformationDB(dbPath))
                                 {
-                                    int count = db.InsertAll(list);                        
+                                    int count = db.InsertAll(list);
+                                    var source = db.Query<AssetsInformation>("select * from assetsinformation");
+                                    DataGrid.DataSource = source;
+                                    DataGrid.ReloadSource();
                                     FrmTips.ShowTips(this, $"{DateTime.Now}, 导入{count}条记录", 3000, true, ContentAlignment.MiddleCenter, null, TipsSizeMode.Large, new Size(300, 100), TipsState.Success);
                                 }
+                               
                             }
                         }
                     }
                 }
 
-                if (dt != null)
-                {
-                   
-                }
+               
             }
 
+        }
+
+        private void BtnCreateQr_BtnClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnExport_BtnClick(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel(*.xlsx)|*.xlsx";
+            saveFileDialog.Title = "保存文件路径及名称";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                //ExportToExcel(List<string> columnList, DataTable source);
+                //MessageBox.Show("选中日期数据已经成功保存至Excel！", "保存Excel提示.", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                //MessageBox.Show("保存操作被取消");
+            }
         }
     }
 

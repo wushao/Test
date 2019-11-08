@@ -28,50 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBoxEx1 = new HZH_Controls.Controls.TextBoxEx();
+            this.TxtAssetName = new HZH_Controls.Controls.TextBoxEx();
             this.textBoxTransparent1 = new HZH_Controls.Controls.TextBoxTransparent();
             this.textBoxTransparent2 = new HZH_Controls.Controls.TextBoxTransparent();
-            this.textBoxEx2 = new HZH_Controls.Controls.TextBoxEx();
+            this.TxtUseDepartment = new HZH_Controls.Controls.TextBoxEx();
             this.textBoxTransparent3 = new HZH_Controls.Controls.TextBoxTransparent();
-            this.textBoxEx3 = new HZH_Controls.Controls.TextBoxEx();
+            this.TxtUsePlace = new HZH_Controls.Controls.TextBoxEx();
             this.textBoxTransparent4 = new HZH_Controls.Controls.TextBoxTransparent();
             this.textBoxTransparent5 = new HZH_Controls.Controls.TextBoxTransparent();
-            this.textBoxEx5 = new HZH_Controls.Controls.TextBoxEx();
+            this.TxtUseDate = new HZH_Controls.Controls.TextBoxEx();
             this.textBoxTransparent6 = new HZH_Controls.Controls.TextBoxTransparent();
-            this.textBoxEx6 = new HZH_Controls.Controls.TextBoxEx();
+            this.TxtManagementDepartment = new HZH_Controls.Controls.TextBoxEx();
             this.textBoxTransparent7 = new HZH_Controls.Controls.TextBoxTransparent();
-            this.textBoxEx7 = new HZH_Controls.Controls.TextBoxEx();
+            this.TxtAssetModel = new HZH_Controls.Controls.TextBoxEx();
             this.textBoxTransparent8 = new HZH_Controls.Controls.TextBoxTransparent();
-            this.textBoxEx8 = new HZH_Controls.Controls.TextBoxEx();
-            this.ucCombox1 = new HZH_Controls.Controls.UCCombox();
+            this.TxtAssetCode = new HZH_Controls.Controls.TextBoxEx();
+            this.ComUseState = new HZH_Controls.Controls.UCCombox();
             this.textBoxTransparent9 = new HZH_Controls.Controls.TextBoxTransparent();
-            this.ucDatePickerExt1 = new HZH_Controls.Controls.UCDatePickerExt();
+            this.DPInstallationDate = new HZH_Controls.Controls.UCDatePickerExt();
             this.SuspendLayout();
             // 
-            // textBoxEx1
+            // TxtAssetName
             // 
-            this.textBoxEx1.DecLength = 2;
-            this.textBoxEx1.InputType = HZH_Controls.TextInputType.NotControl;
-            this.textBoxEx1.Location = new System.Drawing.Point(92, 15);
-            this.textBoxEx1.MaxValue = new decimal(new int[] {
+            this.TxtAssetName.DecLength = 2;
+            this.TxtAssetName.InputType = HZH_Controls.TextInputType.NotControl;
+            this.TxtAssetName.Location = new System.Drawing.Point(92, 15);
+            this.TxtAssetName.MaxValue = new decimal(new int[] {
             1000000,
             0,
             0,
             0});
-            this.textBoxEx1.MinValue = new decimal(new int[] {
+            this.TxtAssetName.MinValue = new decimal(new int[] {
             1000000,
             0,
             0,
             -2147483648});
-            this.textBoxEx1.MyRectangle = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.textBoxEx1.Name = "textBoxEx1";
-            this.textBoxEx1.OldText = null;
-            this.textBoxEx1.PromptColor = System.Drawing.Color.Gray;
-            this.textBoxEx1.PromptFont = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.textBoxEx1.PromptText = "";
-            this.textBoxEx1.RegexPattern = "";
-            this.textBoxEx1.Size = new System.Drawing.Size(263, 21);
-            this.textBoxEx1.TabIndex = 0;
+            this.TxtAssetName.MyRectangle = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.TxtAssetName.Name = "TxtAssetName";
+            this.TxtAssetName.OldText = null;
+            this.TxtAssetName.PromptColor = System.Drawing.Color.Gray;
+            this.TxtAssetName.PromptFont = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtAssetName.PromptText = "";
+            this.TxtAssetName.RegexPattern = "";
+            this.TxtAssetName.Size = new System.Drawing.Size(263, 21);
+            this.TxtAssetName.TabIndex = 0;
             // 
             // textBoxTransparent1
             // 
@@ -131,30 +131,30 @@
             this.textBoxTransparent2.TabIndex = 3;
             this.textBoxTransparent2.Text = "资产型号";
             // 
-            // textBoxEx2
+            // TxtUseDepartment
             // 
-            this.textBoxEx2.DecLength = 2;
-            this.textBoxEx2.InputType = HZH_Controls.TextInputType.NotControl;
-            this.textBoxEx2.Location = new System.Drawing.Point(92, 163);
-            this.textBoxEx2.MaxValue = new decimal(new int[] {
+            this.TxtUseDepartment.DecLength = 2;
+            this.TxtUseDepartment.InputType = HZH_Controls.TextInputType.NotControl;
+            this.TxtUseDepartment.Location = new System.Drawing.Point(92, 163);
+            this.TxtUseDepartment.MaxValue = new decimal(new int[] {
             1000000,
             0,
             0,
             0});
-            this.textBoxEx2.MinValue = new decimal(new int[] {
+            this.TxtUseDepartment.MinValue = new decimal(new int[] {
             1000000,
             0,
             0,
             -2147483648});
-            this.textBoxEx2.MyRectangle = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.textBoxEx2.Name = "textBoxEx2";
-            this.textBoxEx2.OldText = null;
-            this.textBoxEx2.PromptColor = System.Drawing.Color.Gray;
-            this.textBoxEx2.PromptFont = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.textBoxEx2.PromptText = "";
-            this.textBoxEx2.RegexPattern = "";
-            this.textBoxEx2.Size = new System.Drawing.Size(263, 21);
-            this.textBoxEx2.TabIndex = 2;
+            this.TxtUseDepartment.MyRectangle = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.TxtUseDepartment.Name = "TxtUseDepartment";
+            this.TxtUseDepartment.OldText = null;
+            this.TxtUseDepartment.PromptColor = System.Drawing.Color.Gray;
+            this.TxtUseDepartment.PromptFont = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtUseDepartment.PromptText = "";
+            this.TxtUseDepartment.RegexPattern = "";
+            this.TxtUseDepartment.Size = new System.Drawing.Size(263, 21);
+            this.TxtUseDepartment.TabIndex = 2;
             // 
             // textBoxTransparent3
             // 
@@ -185,30 +185,30 @@
             this.textBoxTransparent3.TabIndex = 5;
             this.textBoxTransparent3.Text = "使用年限";
             // 
-            // textBoxEx3
+            // TxtUsePlace
             // 
-            this.textBoxEx3.DecLength = 2;
-            this.textBoxEx3.InputType = HZH_Controls.TextInputType.NotControl;
-            this.textBoxEx3.Location = new System.Drawing.Point(92, 274);
-            this.textBoxEx3.MaxValue = new decimal(new int[] {
+            this.TxtUsePlace.DecLength = 2;
+            this.TxtUsePlace.InputType = HZH_Controls.TextInputType.NotControl;
+            this.TxtUsePlace.Location = new System.Drawing.Point(92, 274);
+            this.TxtUsePlace.MaxValue = new decimal(new int[] {
             1000000,
             0,
             0,
             0});
-            this.textBoxEx3.MinValue = new decimal(new int[] {
+            this.TxtUsePlace.MinValue = new decimal(new int[] {
             1000000,
             0,
             0,
             -2147483648});
-            this.textBoxEx3.MyRectangle = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.textBoxEx3.Name = "textBoxEx3";
-            this.textBoxEx3.OldText = null;
-            this.textBoxEx3.PromptColor = System.Drawing.Color.Gray;
-            this.textBoxEx3.PromptFont = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.textBoxEx3.PromptText = "";
-            this.textBoxEx3.RegexPattern = "";
-            this.textBoxEx3.Size = new System.Drawing.Size(263, 21);
-            this.textBoxEx3.TabIndex = 4;
+            this.TxtUsePlace.MyRectangle = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.TxtUsePlace.Name = "TxtUsePlace";
+            this.TxtUsePlace.OldText = null;
+            this.TxtUsePlace.PromptColor = System.Drawing.Color.Gray;
+            this.TxtUsePlace.PromptFont = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtUsePlace.PromptText = "";
+            this.TxtUsePlace.RegexPattern = "";
+            this.TxtUsePlace.Size = new System.Drawing.Size(263, 21);
+            this.TxtUsePlace.TabIndex = 4;
             // 
             // textBoxTransparent4
             // 
@@ -268,30 +268,30 @@
             this.textBoxTransparent5.TabIndex = 9;
             this.textBoxTransparent5.Text = "使用部门";
             // 
-            // textBoxEx5
+            // TxtUseDate
             // 
-            this.textBoxEx5.DecLength = 2;
-            this.textBoxEx5.InputType = HZH_Controls.TextInputType.NotControl;
-            this.textBoxEx5.Location = new System.Drawing.Point(92, 237);
-            this.textBoxEx5.MaxValue = new decimal(new int[] {
+            this.TxtUseDate.DecLength = 2;
+            this.TxtUseDate.InputType = HZH_Controls.TextInputType.NotControl;
+            this.TxtUseDate.Location = new System.Drawing.Point(92, 237);
+            this.TxtUseDate.MaxValue = new decimal(new int[] {
             1000000,
             0,
             0,
             0});
-            this.textBoxEx5.MinValue = new decimal(new int[] {
+            this.TxtUseDate.MinValue = new decimal(new int[] {
             1000000,
             0,
             0,
             -2147483648});
-            this.textBoxEx5.MyRectangle = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.textBoxEx5.Name = "textBoxEx5";
-            this.textBoxEx5.OldText = null;
-            this.textBoxEx5.PromptColor = System.Drawing.Color.Gray;
-            this.textBoxEx5.PromptFont = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.textBoxEx5.PromptText = "";
-            this.textBoxEx5.RegexPattern = "";
-            this.textBoxEx5.Size = new System.Drawing.Size(263, 21);
-            this.textBoxEx5.TabIndex = 8;
+            this.TxtUseDate.MyRectangle = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.TxtUseDate.Name = "TxtUseDate";
+            this.TxtUseDate.OldText = null;
+            this.TxtUseDate.PromptColor = System.Drawing.Color.Gray;
+            this.TxtUseDate.PromptFont = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtUseDate.PromptText = "";
+            this.TxtUseDate.RegexPattern = "";
+            this.TxtUseDate.Size = new System.Drawing.Size(263, 21);
+            this.TxtUseDate.TabIndex = 8;
             // 
             // textBoxTransparent6
             // 
@@ -322,30 +322,30 @@
             this.textBoxTransparent6.TabIndex = 11;
             this.textBoxTransparent6.Text = "使用状态";
             // 
-            // textBoxEx6
+            // TxtManagementDepartment
             // 
-            this.textBoxEx6.DecLength = 2;
-            this.textBoxEx6.InputType = HZH_Controls.TextInputType.NotControl;
-            this.textBoxEx6.Location = new System.Drawing.Point(92, 126);
-            this.textBoxEx6.MaxValue = new decimal(new int[] {
+            this.TxtManagementDepartment.DecLength = 2;
+            this.TxtManagementDepartment.InputType = HZH_Controls.TextInputType.NotControl;
+            this.TxtManagementDepartment.Location = new System.Drawing.Point(92, 126);
+            this.TxtManagementDepartment.MaxValue = new decimal(new int[] {
             1000000,
             0,
             0,
             0});
-            this.textBoxEx6.MinValue = new decimal(new int[] {
+            this.TxtManagementDepartment.MinValue = new decimal(new int[] {
             1000000,
             0,
             0,
             -2147483648});
-            this.textBoxEx6.MyRectangle = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.textBoxEx6.Name = "textBoxEx6";
-            this.textBoxEx6.OldText = null;
-            this.textBoxEx6.PromptColor = System.Drawing.Color.Gray;
-            this.textBoxEx6.PromptFont = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.textBoxEx6.PromptText = "";
-            this.textBoxEx6.RegexPattern = "";
-            this.textBoxEx6.Size = new System.Drawing.Size(263, 21);
-            this.textBoxEx6.TabIndex = 10;
+            this.TxtManagementDepartment.MyRectangle = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.TxtManagementDepartment.Name = "TxtManagementDepartment";
+            this.TxtManagementDepartment.OldText = null;
+            this.TxtManagementDepartment.PromptColor = System.Drawing.Color.Gray;
+            this.TxtManagementDepartment.PromptFont = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtManagementDepartment.PromptText = "";
+            this.TxtManagementDepartment.RegexPattern = "";
+            this.TxtManagementDepartment.Size = new System.Drawing.Size(263, 21);
+            this.TxtManagementDepartment.TabIndex = 10;
             // 
             // textBoxTransparent7
             // 
@@ -376,30 +376,30 @@
             this.textBoxTransparent7.TabIndex = 13;
             this.textBoxTransparent7.Text = "管理部门";
             // 
-            // textBoxEx7
+            // TxtAssetModel
             // 
-            this.textBoxEx7.DecLength = 2;
-            this.textBoxEx7.InputType = HZH_Controls.TextInputType.NotControl;
-            this.textBoxEx7.Location = new System.Drawing.Point(92, 89);
-            this.textBoxEx7.MaxValue = new decimal(new int[] {
+            this.TxtAssetModel.DecLength = 2;
+            this.TxtAssetModel.InputType = HZH_Controls.TextInputType.NotControl;
+            this.TxtAssetModel.Location = new System.Drawing.Point(92, 89);
+            this.TxtAssetModel.MaxValue = new decimal(new int[] {
             1000000,
             0,
             0,
             0});
-            this.textBoxEx7.MinValue = new decimal(new int[] {
+            this.TxtAssetModel.MinValue = new decimal(new int[] {
             1000000,
             0,
             0,
             -2147483648});
-            this.textBoxEx7.MyRectangle = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.textBoxEx7.Name = "textBoxEx7";
-            this.textBoxEx7.OldText = null;
-            this.textBoxEx7.PromptColor = System.Drawing.Color.Gray;
-            this.textBoxEx7.PromptFont = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.textBoxEx7.PromptText = "";
-            this.textBoxEx7.RegexPattern = "";
-            this.textBoxEx7.Size = new System.Drawing.Size(263, 21);
-            this.textBoxEx7.TabIndex = 12;
+            this.TxtAssetModel.MyRectangle = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.TxtAssetModel.Name = "TxtAssetModel";
+            this.TxtAssetModel.OldText = null;
+            this.TxtAssetModel.PromptColor = System.Drawing.Color.Gray;
+            this.TxtAssetModel.PromptFont = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtAssetModel.PromptText = "";
+            this.TxtAssetModel.RegexPattern = "";
+            this.TxtAssetModel.Size = new System.Drawing.Size(263, 21);
+            this.TxtAssetModel.TabIndex = 12;
             // 
             // textBoxTransparent8
             // 
@@ -430,56 +430,56 @@
             this.textBoxTransparent8.TabIndex = 15;
             this.textBoxTransparent8.Text = "资产编码";
             // 
-            // textBoxEx8
+            // TxtAssetCode
             // 
-            this.textBoxEx8.DecLength = 2;
-            this.textBoxEx8.InputType = HZH_Controls.TextInputType.NotControl;
-            this.textBoxEx8.Location = new System.Drawing.Point(92, 52);
-            this.textBoxEx8.MaxValue = new decimal(new int[] {
+            this.TxtAssetCode.DecLength = 2;
+            this.TxtAssetCode.InputType = HZH_Controls.TextInputType.NotControl;
+            this.TxtAssetCode.Location = new System.Drawing.Point(92, 52);
+            this.TxtAssetCode.MaxValue = new decimal(new int[] {
             1000000,
             0,
             0,
             0});
-            this.textBoxEx8.MinValue = new decimal(new int[] {
+            this.TxtAssetCode.MinValue = new decimal(new int[] {
             1000000,
             0,
             0,
             -2147483648});
-            this.textBoxEx8.MyRectangle = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.textBoxEx8.Name = "textBoxEx8";
-            this.textBoxEx8.OldText = null;
-            this.textBoxEx8.PromptColor = System.Drawing.Color.Gray;
-            this.textBoxEx8.PromptFont = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.textBoxEx8.PromptText = "";
-            this.textBoxEx8.RegexPattern = "";
-            this.textBoxEx8.Size = new System.Drawing.Size(263, 21);
-            this.textBoxEx8.TabIndex = 14;
+            this.TxtAssetCode.MyRectangle = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.TxtAssetCode.Name = "TxtAssetCode";
+            this.TxtAssetCode.OldText = null;
+            this.TxtAssetCode.PromptColor = System.Drawing.Color.Gray;
+            this.TxtAssetCode.PromptFont = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtAssetCode.PromptText = "";
+            this.TxtAssetCode.RegexPattern = "";
+            this.TxtAssetCode.Size = new System.Drawing.Size(263, 21);
+            this.TxtAssetCode.TabIndex = 14;
             // 
-            // ucCombox1
+            // ComUseState
             // 
-            this.ucCombox1.BackColor = System.Drawing.Color.Transparent;
-            this.ucCombox1.BackColorExt = System.Drawing.Color.White;
-            this.ucCombox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ucCombox1.BoxStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ucCombox1.ConerRadius = 5;
-            this.ucCombox1.DropPanelHeight = -1;
-            this.ucCombox1.FillColor = System.Drawing.Color.White;
-            this.ucCombox1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.ucCombox1.IsRadius = true;
-            this.ucCombox1.IsShowRect = false;
-            this.ucCombox1.ItemWidth = 70;
-            this.ucCombox1.Location = new System.Drawing.Point(92, 198);
-            this.ucCombox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ucCombox1.Name = "ucCombox1";
-            this.ucCombox1.RectColor = System.Drawing.Color.Gray;
-            this.ucCombox1.RectWidth = 1;
-            this.ucCombox1.SelectedIndex = -1;
-            this.ucCombox1.SelectedValue = "";
-            this.ucCombox1.Size = new System.Drawing.Size(263, 21);
-            this.ucCombox1.Source = null;
-            this.ucCombox1.TabIndex = 16;
-            this.ucCombox1.TextValue = null;
-            this.ucCombox1.TriangleColor = System.Drawing.Color.Green;
+            this.ComUseState.BackColor = System.Drawing.Color.Transparent;
+            this.ComUseState.BackColorExt = System.Drawing.Color.White;
+            this.ComUseState.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ComUseState.BoxStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComUseState.ConerRadius = 5;
+            this.ComUseState.DropPanelHeight = -1;
+            this.ComUseState.FillColor = System.Drawing.Color.White;
+            this.ComUseState.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.ComUseState.IsRadius = true;
+            this.ComUseState.IsShowRect = false;
+            this.ComUseState.ItemWidth = 70;
+            this.ComUseState.Location = new System.Drawing.Point(92, 198);
+            this.ComUseState.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ComUseState.Name = "ComUseState";
+            this.ComUseState.RectColor = System.Drawing.Color.White;
+            this.ComUseState.RectWidth = 1;
+            this.ComUseState.SelectedIndex = -1;
+            this.ComUseState.SelectedValue = "";
+            this.ComUseState.Size = new System.Drawing.Size(263, 21);
+            this.ComUseState.Source = null;
+            this.ComUseState.TabIndex = 16;
+            this.ComUseState.TextValue = null;
+            this.ComUseState.TriangleColor = System.Drawing.Color.Green;
             // 
             // textBoxTransparent9
             // 
@@ -510,26 +510,26 @@
             this.textBoxTransparent9.TabIndex = 17;
             this.textBoxTransparent9.Text = "安装日期";
             // 
-            // ucDatePickerExt1
+            // DPInstallationDate
             // 
-            this.ucDatePickerExt1.BackColor = System.Drawing.Color.White;
-            this.ucDatePickerExt1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ucDatePickerExt1.ConerRadius = 5;
-            this.ucDatePickerExt1.CurrentTime = new System.DateTime(2019, 10, 30, 9, 56, 19, 0);
-            this.ucDatePickerExt1.FillColor = System.Drawing.Color.Transparent;
-            this.ucDatePickerExt1.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.ucDatePickerExt1.IsRadius = true;
-            this.ucDatePickerExt1.IsShowRect = true;
-            this.ucDatePickerExt1.Location = new System.Drawing.Point(93, 307);
-            this.ucDatePickerExt1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ucDatePickerExt1.Name = "ucDatePickerExt1";
-            this.ucDatePickerExt1.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
-            this.ucDatePickerExt1.RectColor = System.Drawing.Color.Transparent;
-            this.ucDatePickerExt1.RectWidth = 1;
-            this.ucDatePickerExt1.Size = new System.Drawing.Size(263, 21);
-            this.ucDatePickerExt1.TabIndex = 18;
-            this.ucDatePickerExt1.TimeFontSize = 12;
-            this.ucDatePickerExt1.TimeType = HZH_Controls.Controls.DateTimePickerType.Date;
+            this.DPInstallationDate.BackColor = System.Drawing.Color.White;
+            this.DPInstallationDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.DPInstallationDate.ConerRadius = 5;
+            this.DPInstallationDate.CurrentTime = new System.DateTime(2019, 10, 30, 9, 56, 19, 0);
+            this.DPInstallationDate.FillColor = System.Drawing.Color.Transparent;
+            this.DPInstallationDate.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.DPInstallationDate.IsRadius = true;
+            this.DPInstallationDate.IsShowRect = true;
+            this.DPInstallationDate.Location = new System.Drawing.Point(93, 307);
+            this.DPInstallationDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DPInstallationDate.Name = "DPInstallationDate";
+            this.DPInstallationDate.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
+            this.DPInstallationDate.RectColor = System.Drawing.Color.Transparent;
+            this.DPInstallationDate.RectWidth = 1;
+            this.DPInstallationDate.Size = new System.Drawing.Size(263, 21);
+            this.DPInstallationDate.TabIndex = 18;
+            this.DPInstallationDate.TimeFontSize = 12;
+            this.DPInstallationDate.TimeType = HZH_Controls.Controls.DateTimePickerType.Date;
             // 
             // FormUserControl
             // 
@@ -537,26 +537,27 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.ucDatePickerExt1);
+            this.Controls.Add(this.DPInstallationDate);
             this.Controls.Add(this.textBoxTransparent9);
-            this.Controls.Add(this.ucCombox1);
+            this.Controls.Add(this.ComUseState);
             this.Controls.Add(this.textBoxTransparent8);
-            this.Controls.Add(this.textBoxEx8);
+            this.Controls.Add(this.TxtAssetCode);
             this.Controls.Add(this.textBoxTransparent7);
-            this.Controls.Add(this.textBoxEx7);
+            this.Controls.Add(this.TxtAssetModel);
             this.Controls.Add(this.textBoxTransparent6);
-            this.Controls.Add(this.textBoxEx6);
+            this.Controls.Add(this.TxtManagementDepartment);
             this.Controls.Add(this.textBoxTransparent5);
-            this.Controls.Add(this.textBoxEx5);
+            this.Controls.Add(this.TxtUseDate);
             this.Controls.Add(this.textBoxTransparent4);
             this.Controls.Add(this.textBoxTransparent3);
-            this.Controls.Add(this.textBoxEx3);
+            this.Controls.Add(this.TxtUsePlace);
             this.Controls.Add(this.textBoxTransparent2);
-            this.Controls.Add(this.textBoxEx2);
+            this.Controls.Add(this.TxtUseDepartment);
             this.Controls.Add(this.textBoxTransparent1);
-            this.Controls.Add(this.textBoxEx1);
+            this.Controls.Add(this.TxtAssetName);
             this.Name = "FormUserControl";
             this.Size = new System.Drawing.Size(410, 350);
+            this.Load += new System.EventHandler(this.FormUserControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -564,23 +565,23 @@
 
         #endregion
 
-        private HZH_Controls.Controls.TextBoxEx textBoxEx1;
+        private HZH_Controls.Controls.TextBoxEx TxtAssetName;
         private HZH_Controls.Controls.TextBoxTransparent textBoxTransparent1;
         private HZH_Controls.Controls.TextBoxTransparent textBoxTransparent2;
-        private HZH_Controls.Controls.TextBoxEx textBoxEx2;
+        private HZH_Controls.Controls.TextBoxEx TxtUseDepartment;
         private HZH_Controls.Controls.TextBoxTransparent textBoxTransparent3;
-        private HZH_Controls.Controls.TextBoxEx textBoxEx3;
+        private HZH_Controls.Controls.TextBoxEx TxtUsePlace;
         private HZH_Controls.Controls.TextBoxTransparent textBoxTransparent4;
         private HZH_Controls.Controls.TextBoxTransparent textBoxTransparent5;
-        private HZH_Controls.Controls.TextBoxEx textBoxEx5;
+        private HZH_Controls.Controls.TextBoxEx TxtUseDate;
         private HZH_Controls.Controls.TextBoxTransparent textBoxTransparent6;
-        private HZH_Controls.Controls.TextBoxEx textBoxEx6;
+        private HZH_Controls.Controls.TextBoxEx TxtManagementDepartment;
         private HZH_Controls.Controls.TextBoxTransparent textBoxTransparent7;
-        private HZH_Controls.Controls.TextBoxEx textBoxEx7;
+        private HZH_Controls.Controls.TextBoxEx TxtAssetModel;
         private HZH_Controls.Controls.TextBoxTransparent textBoxTransparent8;
-        private HZH_Controls.Controls.TextBoxEx textBoxEx8;
-        private HZH_Controls.Controls.UCCombox ucCombox1;
+        private HZH_Controls.Controls.TextBoxEx TxtAssetCode;
+        private HZH_Controls.Controls.UCCombox ComUseState;
         private HZH_Controls.Controls.TextBoxTransparent textBoxTransparent9;
-        private HZH_Controls.Controls.UCDatePickerExt ucDatePickerExt1;
+        private HZH_Controls.Controls.UCDatePickerExt DPInstallationDate;
     }
 }
