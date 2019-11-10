@@ -6,13 +6,15 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
+using WinForm.Common;
 using WinForm.DAL;
 using WinForm.Model;
 
 namespace WinForm.UI
 {
-    public partial class FormMain :  FrmWithTitle
+    public partial class FormMain : FrmWithTitle
     {
         string dbPath = $"{Environment.CurrentDirectory}\\AssetsInformation.db";
         public FormMain()
@@ -37,19 +39,18 @@ namespace WinForm.UI
             //lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "Sex", HeadText = "性别", Width = 50, WidthType = SizeType.Percent, Format = (a) => { return ((int)a) == 0 ? "女" : "男"; } });
             this.DataGrid.Columns = lstCulumns;
             this.DataGrid.IsShowCheckBox = true;
-           
-            using (var db = new AssetsInformationDB(dbPath))
-            {
-                var list = db.Query<AssetsInformation>("select * from assetsinformation");
-                DataGrid.DataSource = list;
-            }
 
-    }
+            GetList();
+
+        }
 
         private void BtnAdd_BtnClick(object sender, EventArgs e)
         {
             FormEdit formEdit = new FormEdit();
-            formEdit.RefreshActionn = () => { DataGrid.ReloadSource(); };
+            formEdit.RefreshActionn = () =>
+            {
+                GetList();
+            };
             formEdit.ShowDialog();
         }
 
@@ -58,7 +59,7 @@ namespace WinForm.UI
             OpenFileDialog fileDialog = new OpenFileDialog();
             fileDialog.Filter = "Excel表格|*.xlsx";
             fileDialog.CheckFileExists = true;
-            if (fileDialog.ShowDialog() == DialogResult.OK &&   !string.IsNullOrWhiteSpace(fileDialog.FileName))
+            if (fileDialog.ShowDialog() == DialogResult.OK && !string.IsNullOrWhiteSpace(fileDialog.FileName))
             {
                 //获取excel文件
                 var file = new System.IO.FileInfo(fileDialog.FileName);
@@ -70,7 +71,7 @@ namespace WinForm.UI
                     if (workbook != null)
                     {
                         if (workbook.Worksheets.Count > 0)
-                        {    
+                        {
                             //获取workbook的第一个worksheet
                             ExcelWorksheet worksheet = workbook.Worksheets[1];
                             //将worksheet转成datatable
@@ -92,29 +93,55 @@ namespace WinForm.UI
                                     entity.InstallationDate = Convert.ToDateTime(row["安装日期"]?.ToString()).ToLongDateString();
                                     list.Add(entity);
                                 }
-                               
+
                                 using (var db = new AssetsInformationDB(dbPath))
                                 {
                                     int count = db.InsertAll(list);
                                     var source = db.Query<AssetsInformation>("select * from assetsinformation");
                                     DataGrid.DataSource = source;
                                     DataGrid.ReloadSource();
-                                    FrmTips.ShowTips(this, $"{DateTime.Now}, 导入{count}条记录", 3000, true, ContentAlignment.MiddleCenter, null, TipsSizeMode.Large, new Size(300, 100), TipsState.Success);
+                                    FrmTips.ShowTips(this, $"导入{count}条记录", 3000, true, ContentAlignment.MiddleCenter, null, TipsSizeMode.Large, new Size(300, 100), TipsState.Success);
                                 }
-                               
+
                             }
                         }
                     }
                 }
 
-               
+
             }
 
         }
 
         private void BtnCreateQr_BtnClick(object sender, EventArgs e)
         {
-
+            var rows = DataGrid.SelectRows;
+            if (rows != null)
+            {
+                var ids = string.Empty;
+                rows.ForEach(p => ids += $"{((AssetsInformation)((UCDataGridViewRow)p).DataSource).id},");
+                ids = ids.TrimEnd(',');
+                using (var db = new AssetsInformationDB(dbPath))
+                {
+                    var list = db.Query<AssetsInformation>($"select * from assetsinformation where id in ({ids})");
+                    if (list != null && list.Any())
+                    {
+                        foreach (var item in list)
+                        {
+                            item.QdPath = QRCodeHelper.CreateQRCodeImage(new QRCodeMsg()
+                            {
+                                Content = $"{item.AssetName}\r\n{item.AssetCode}\r\n{item.AssetModel}\r\n{item.ManagementDepartment}\r\n{item.UseDepartment}\r\n{item.UseState}\r\n{item.UseDate}\r\n{item.UsePlace}\r\n{item.InstallationDate}",
+                                ImageName = $"{item.AssetCode}{DateTime.Now.ToLongDateString()}",
+                                FilePath = $"{Environment.CurrentDirectory}"
+                            });
+                        }
+                        db.UpdateAll(list);
+                    }
+                }
+                FrmTips.ShowTips(this, $"二维码生成成功！", 3000, true, ContentAlignment.MiddleCenter, null,
+                    TipsSizeMode.Large, new Size(200, 80), TipsState.Success);
+                GetList();
+            }
         }
 
         private void BtnExport_BtnClick(object sender, EventArgs e)
@@ -131,6 +158,81 @@ namespace WinForm.UI
             {
                 //MessageBox.Show("保存操作被取消");
             }
+        }
+
+        private void BtnSearch_BtnClick(object sender, EventArgs e)
+        {
+            GetList(TxtSearch.Text.Trim());
+        }
+                
+        private void BtnEdit_BtnClick(object sender, EventArgs e)
+        {
+            var row = DataGrid.SelectRows;
+            if (row == null || row.Count == 0 || row.Count > 1)
+            {
+                FrmTips.ShowTips(this, "请选择记录进行修改！", 3000, true, ContentAlignment.MiddleCenter, null,TipsSizeMode.Large, new Size(150, 80), TipsState.Warning);
+
+            }
+            else
+            {
+                FormEdit formEdit = new FormEdit();
+                var source = (AssetsInformation)((UCDataGridViewRow)row[0]).DataSource;
+                formEdit.Item = source;
+                formEdit.RefreshActionn = () =>
+                {
+                    GetList();
+                };
+                formEdit.ShowDialog();
+            }
+        }
+
+        private void BtnDel_BtnClick(object sender, EventArgs e)
+        {
+
+           var result= FrmDialog.ShowDialog(this,"确定删除选择的记录？","删除记录",true);
+            if(result == DialogResult.OK)
+            {
+                var rows = DataGrid.SelectRows;
+
+                if (rows != null)
+                {
+                    var ids = string.Empty;
+                    rows.ForEach(p => ids += $"{((AssetsInformation)((UCDataGridViewRow)p).DataSource).id},");
+                    ids = ids.TrimEnd(',');
+                    using (var db = new AssetsInformationDB(dbPath))
+                    {
+                        db.Query<AssetsInformation>($"delete from assetsinformation where id in ({ids})");
+                    }
+
+                    FrmTips.ShowTips(this, $"删除成功！", 3000, true, ContentAlignment.MiddleCenter, null,
+                        TipsSizeMode.Large, new Size(200, 80), TipsState.Success);
+                    GetList();
+                }
+            }
+            
+        }
+
+        private void GetList(string searchStr="")
+        {
+            using (var db = new AssetsInformationDB(dbPath))
+            {
+                List<AssetsInformation> source = new List<AssetsInformation>();
+                if (!string.IsNullOrWhiteSpace(searchStr))
+                {
+                    source = db.Query<AssetsInformation>($"select * from assetsinformation where AssetName like '%{searchStr}%'");
+                }
+                else
+                {
+                    source = db.Query<AssetsInformation>("select * from assetsinformation");
+                }
+                DataGrid.DataSource = source;
+                DataGrid.ReloadSource();
+            }
+        }
+
+        private void BtnPrintQr_BtnClick(object sender, EventArgs e)
+        {
+
         }
     }
 

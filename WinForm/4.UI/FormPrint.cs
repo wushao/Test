@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HZH_Controls.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,16 @@ using System.Windows.Forms;
 
 namespace WinForm.UI
 {
-    public partial class FormPrint : Form
+    public partial class FormPrint :FrmWithOKCancel2
     {
         public FormPrint()
         {
             InitializeComponent();
+        }
+
+        protected override void DoEnter()
+        {
+
         }
     }
 }

@@ -12,7 +12,7 @@ namespace WinForm.Common
 {
     public class QRCodeHelper
     {
-        public static void CreateQRCodeImage(QRCodeMsg entity)
+        public static string CreateQRCodeImage(QRCodeMsg entity)
         {
             BarcodeWriter writer = new BarcodeWriter();
             writer.Format = BarcodeFormat.QR_CODE;
@@ -31,6 +31,7 @@ namespace WinForm.Common
             string filePath = $"{entity.FilePath}\\{entity.ImageName}.PNG";
             map.Save(filePath, ImageFormat.Png);
             map.Dispose();
+            return filePath;
         }
 
         public static string GetQRCodeImageMsg(QRCodeMsg entity)

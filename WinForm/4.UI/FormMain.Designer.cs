@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.ucPanelQuote1 = new HZH_Controls.Controls.UCPanelQuote();
             this.BtnLog = new HZH_Controls.Controls.UCBtnExt();
             this.BtnPrintQr = new HZH_Controls.Controls.UCBtnExt();
@@ -40,10 +39,10 @@
             this.BtnAdd = new HZH_Controls.Controls.UCBtnExt();
             this.ucPanelQuote2 = new HZH_Controls.Controls.UCPanelQuote();
             this.BtnSearch = new HZH_Controls.Controls.UCBtnExt();
-            this.ucDropDownBtn1 = new HZH_Controls.Controls.UCDropDownBtn();
-            this.textBoxEx1 = new HZH_Controls.Controls.TextBoxEx();
+            this.TxtSearch = new HZH_Controls.Controls.TextBoxEx();
             this.ucPanelQuote3 = new HZH_Controls.Controls.UCPanelQuote();
             this.DataGrid = new HZH_Controls.Controls.UCDataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             this.ucPanelQuote1.SuspendLayout();
             this.ucPanelQuote2.SuspendLayout();
             this.ucPanelQuote3.SuspendLayout();
@@ -120,6 +119,7 @@
             this.BtnPrintQr.TabStop = false;
             this.BtnPrintQr.TipsColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(30)))), ((int)(((byte)(99)))));
             this.BtnPrintQr.TipsText = "";
+            this.BtnPrintQr.BtnClick += new System.EventHandler(this.BtnPrintQr_BtnClick);
             // 
             // BtnCreateQr
             // 
@@ -224,6 +224,7 @@
             this.BtnDel.TabStop = false;
             this.BtnDel.TipsColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(30)))), ((int)(((byte)(99)))));
             this.BtnDel.TipsText = "";
+            this.BtnDel.BtnClick += new System.EventHandler(this.BtnDel_BtnClick);
             // 
             // BtnEdit
             // 
@@ -249,6 +250,7 @@
             this.BtnEdit.TabStop = false;
             this.BtnEdit.TipsColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(30)))), ((int)(((byte)(99)))));
             this.BtnEdit.TipsText = "";
+            this.BtnEdit.BtnClick += new System.EventHandler(this.BtnEdit_BtnClick);
             // 
             // BtnAdd
             // 
@@ -280,9 +282,9 @@
             // 
             this.ucPanelQuote2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ucPanelQuote2.BorderColor = System.Drawing.Color.Green;
+            this.ucPanelQuote2.Controls.Add(this.label1);
             this.ucPanelQuote2.Controls.Add(this.BtnSearch);
-            this.ucPanelQuote2.Controls.Add(this.ucDropDownBtn1);
-            this.ucPanelQuote2.Controls.Add(this.textBoxEx1);
+            this.ucPanelQuote2.Controls.Add(this.TxtSearch);
             this.ucPanelQuote2.LeftColor = System.Drawing.Color.Green;
             this.ucPanelQuote2.Location = new System.Drawing.Point(5, 123);
             this.ucPanelQuote2.Name = "ucPanelQuote2";
@@ -305,7 +307,7 @@
             this.BtnSearch.IsRadius = true;
             this.BtnSearch.IsShowRect = true;
             this.BtnSearch.IsShowTips = false;
-            this.BtnSearch.Location = new System.Drawing.Point(785, 12);
+            this.BtnSearch.Location = new System.Drawing.Point(278, 9);
             this.BtnSearch.Margin = new System.Windows.Forms.Padding(0);
             this.BtnSearch.Name = "BtnSearch";
             this.BtnSearch.RectColor = System.Drawing.Color.Green;
@@ -315,63 +317,32 @@
             this.BtnSearch.TabStop = false;
             this.BtnSearch.TipsColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(30)))), ((int)(((byte)(99)))));
             this.BtnSearch.TipsText = "";
+            this.BtnSearch.BtnClick += new System.EventHandler(this.BtnSearch_BtnClick);
             // 
-            // ucDropDownBtn1
+            // TxtSearch
             // 
-            this.ucDropDownBtn1.BackColor = System.Drawing.Color.White;
-            this.ucDropDownBtn1.BtnBackColor = System.Drawing.Color.White;
-            this.ucDropDownBtn1.BtnFont = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ucDropDownBtn1.BtnForeColor = System.Drawing.Color.White;
-            this.ucDropDownBtn1.Btns = null;
-            this.ucDropDownBtn1.BtnText = "选择查询";
-            this.ucDropDownBtn1.ConerRadius = 5;
-            this.ucDropDownBtn1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ucDropDownBtn1.DropPanelHeight = -1;
-            this.ucDropDownBtn1.FillColor = System.Drawing.Color.Green;
-            this.ucDropDownBtn1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ucDropDownBtn1.ForeColor = System.Drawing.Color.White;
-            this.ucDropDownBtn1.Image = ((System.Drawing.Image)(resources.GetObject("ucDropDownBtn1.Image")));
-            this.ucDropDownBtn1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ucDropDownBtn1.ImageFontIcons = null;
-            this.ucDropDownBtn1.IsRadius = true;
-            this.ucDropDownBtn1.IsShowRect = true;
-            this.ucDropDownBtn1.IsShowTips = false;
-            this.ucDropDownBtn1.Location = new System.Drawing.Point(20, 13);
-            this.ucDropDownBtn1.Margin = new System.Windows.Forms.Padding(2);
-            this.ucDropDownBtn1.Name = "ucDropDownBtn1";
-            this.ucDropDownBtn1.RectColor = System.Drawing.Color.Green;
-            this.ucDropDownBtn1.RectWidth = 1;
-            this.ucDropDownBtn1.Size = new System.Drawing.Size(95, 25);
-            this.ucDropDownBtn1.TabIndex = 1;
-            this.ucDropDownBtn1.TabStop = false;
-            this.ucDropDownBtn1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.ucDropDownBtn1.TipsColor = System.Drawing.Color.Green;
-            this.ucDropDownBtn1.TipsText = "";
-            // 
-            // textBoxEx1
-            // 
-            this.textBoxEx1.DecLength = 2;
-            this.textBoxEx1.InputType = HZH_Controls.TextInputType.NotControl;
-            this.textBoxEx1.Location = new System.Drawing.Point(126, 15);
-            this.textBoxEx1.MaxValue = new decimal(new int[] {
+            this.TxtSearch.DecLength = 2;
+            this.TxtSearch.InputType = HZH_Controls.TextInputType.NotControl;
+            this.TxtSearch.Location = new System.Drawing.Point(95, 12);
+            this.TxtSearch.MaxValue = new decimal(new int[] {
             1000000,
             0,
             0,
             0});
-            this.textBoxEx1.MinValue = new decimal(new int[] {
+            this.TxtSearch.MinValue = new decimal(new int[] {
             1000000,
             0,
             0,
             -2147483648});
-            this.textBoxEx1.MyRectangle = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.textBoxEx1.Name = "textBoxEx1";
-            this.textBoxEx1.OldText = null;
-            this.textBoxEx1.PromptColor = System.Drawing.Color.Gray;
-            this.textBoxEx1.PromptFont = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.textBoxEx1.PromptText = "";
-            this.textBoxEx1.RegexPattern = "";
-            this.textBoxEx1.Size = new System.Drawing.Size(162, 23);
-            this.textBoxEx1.TabIndex = 0;
+            this.TxtSearch.MyRectangle = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.TxtSearch.Name = "TxtSearch";
+            this.TxtSearch.OldText = null;
+            this.TxtSearch.PromptColor = System.Drawing.Color.Gray;
+            this.TxtSearch.PromptFont = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtSearch.PromptText = "";
+            this.TxtSearch.RegexPattern = "";
+            this.TxtSearch.Size = new System.Drawing.Size(162, 23);
+            this.TxtSearch.TabIndex = 0;
             // 
             // ucPanelQuote3
             // 
@@ -405,6 +376,15 @@
             this.DataGrid.RowType = typeof(HZH_Controls.Controls.UCDataGridViewRow);
             this.DataGrid.Size = new System.Drawing.Size(858, 461);
             this.DataGrid.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(25, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 17);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "资产名称：";
             // 
             // FormMain
             // 
@@ -447,9 +427,9 @@
         private HZH_Controls.Controls.UCBtnExt BtnDel;
         private HZH_Controls.Controls.UCBtnExt BtnEdit;
         private HZH_Controls.Controls.UCBtnExt BtnAdd;
-        private HZH_Controls.Controls.UCDropDownBtn ucDropDownBtn1;
-        private HZH_Controls.Controls.TextBoxEx textBoxEx1;
+        private HZH_Controls.Controls.TextBoxEx TxtSearch;
         private HZH_Controls.Controls.UCBtnExt BtnSearch;
         private HZH_Controls.Controls.UCDataGridView DataGrid;
+        private System.Windows.Forms.Label label1;
     }
 }

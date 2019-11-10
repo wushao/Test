@@ -10,7 +10,13 @@ namespace WinForm.DAL
     public class AssetsInformationDB : SQLiteConnection
     {
         //定义属性，便于外部访问数据表
-        public TableQuery<AssetsInformation> AssetsInformations { get { return this.Table<AssetsInformation>(); } }
+        public TableQuery<AssetsInformation> AssetsInformations
+        {
+            get
+            {
+                return this.Table<AssetsInformation>();
+            }
+        }
 
         public AssetsInformationDB(string dbPath) : base(dbPath)
         {

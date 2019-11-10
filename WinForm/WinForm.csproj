@@ -102,8 +102,10 @@
     <Compile Include="0.Common\PrintHelper.cs" />
     <Compile Include="0.Common\QRCodeHelper.cs" />
     <Compile Include="1.Model\AssetsInformationModel.cs" />
+    <Compile Include="1.Model\LogModel.cs" />
     <Compile Include="1.Model\SourceModel.cs" />
     <Compile Include="2.DAL\AssetsInformationDB.cs" />
+    <Compile Include="2.DAL\LogInformationDB.cs" />
     <Compile Include="4.UI\FormEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="4.UI\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="4.UI\FormPrint.resx">
+      <DependentUpon>FormPrint.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="4.UI\WinUserControl\FormUserControl.resx">
       <DependentUpon>FormUserControl.cs</DependentUpon>

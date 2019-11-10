@@ -43,7 +43,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BorderStyleColor = System.Drawing.Color.Transparent;
+            this.BorderStyleColor = System.Drawing.Color.Green;
+            this.BorderStyleSize = 2;
+            this.BorderStyleType = System.Windows.Forms.ButtonBorderStyle.Solid;
             this.ClientSize = new System.Drawing.Size(548, 620);
             this.IsShowCloseBtn = true;
             this.Name = "FormEdit";
