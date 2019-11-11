@@ -34,7 +34,7 @@ namespace WinForm.UI
             lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "UseDate", HeadText = "使用年限", Width = 50, WidthType = SizeType.Percent });
             lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "UsePlace", HeadText = "使用地点", Width = 50, WidthType = SizeType.Percent });
             lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "InstallationDate", HeadText = "安装日期", Width = 100, WidthType = SizeType.Percent });
-            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "QdPath", HeadText = "二维码", Width = 100, WidthType = SizeType.Percent });
+            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "QdPath", HeadText = "二维码", Width = 100, WidthType = SizeType.Percent, CustomCellType = typeof(WinUserControl.GridTable_ImageCell) });
             //lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "AssetModel", HeadText = "资产型号", Width = 50, WidthType = SizeType.Percent, Format = (a) => { return ((DateTime)a).ToString("yyyy-MM-dd"); } });
             //lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "Sex", HeadText = "性别", Width = 50, WidthType = SizeType.Percent, Format = (a) => { return ((int)a) == 0 ? "女" : "男"; } });
             this.DataGrid.Columns = lstCulumns;
@@ -44,6 +44,7 @@ namespace WinForm.UI
 
         }
 
+        //新增
         private void BtnAdd_BtnClick(object sender, EventArgs e)
         {
             FormEdit formEdit = new FormEdit();
@@ -53,7 +54,7 @@ namespace WinForm.UI
             };
             formEdit.ShowDialog();
         }
-
+        //导入
         private void BtnImport_BtnClick(object sender, EventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
@@ -111,8 +112,26 @@ namespace WinForm.UI
 
             }
 
+        }     
+
+        //导出
+        private void BtnExport_BtnClick(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel(*.xlsx)|*.xlsx";
+            saveFileDialog.Title = "保存文件路径及名称";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                //ExportToExcel(List<string> columnList, DataTable source);
+                //MessageBox.Show("选中日期数据已经成功保存至Excel！", "保存Excel提示.", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                //MessageBox.Show("保存操作被取消");
+            }
         }
 
+        //生成二维码
         private void BtnCreateQr_BtnClick(object sender, EventArgs e)
         {
             var rows = DataGrid.SelectRows;
@@ -144,33 +163,25 @@ namespace WinForm.UI
             }
         }
 
-        private void BtnExport_BtnClick(object sender, EventArgs e)
+        //打印二维码
+        private void BtnPrintQr_BtnClick(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Excel(*.xlsx)|*.xlsx";
-            saveFileDialog.Title = "保存文件路径及名称";
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                //ExportToExcel(List<string> columnList, DataTable source);
-                //MessageBox.Show("选中日期数据已经成功保存至Excel！", "保存Excel提示.", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            else
-            {
-                //MessageBox.Show("保存操作被取消");
-            }
+
         }
 
+        //查询
         private void BtnSearch_BtnClick(object sender, EventArgs e)
         {
             GetList(TxtSearch.Text.Trim());
         }
-                
+        
+        //修改
         private void BtnEdit_BtnClick(object sender, EventArgs e)
         {
             var row = DataGrid.SelectRows;
             if (row == null || row.Count == 0 || row.Count > 1)
             {
-                FrmTips.ShowTips(this, "请选择记录进行修改！", 3000, true, ContentAlignment.MiddleCenter, null,TipsSizeMode.Large, new Size(150, 80), TipsState.Warning);
+                FrmTips.ShowTips(this, "请选择单条记录进行修改！", 3000, true, ContentAlignment.MiddleCenter, null,TipsSizeMode.Large, new Size(150, 80), TipsState.Warning);
 
             }
             else
@@ -186,6 +197,7 @@ namespace WinForm.UI
             }
         }
 
+        //删除
         private void BtnDel_BtnClick(object sender, EventArgs e)
         {
 
@@ -212,7 +224,26 @@ namespace WinForm.UI
             
         }
 
-        private void GetList(string searchStr="")
+       
+        //查看日志
+        private void BtnLog_BtnClick(object sender, EventArgs e)
+        {
+            var row = DataGrid.SelectRows;
+            if (row == null || row.Count == 0 || row.Count > 1)
+            {
+                FrmTips.ShowTips(this, "请选择单条记录！", 3000, true, ContentAlignment.MiddleCenter, null, TipsSizeMode.Large, new Size(150, 80), TipsState.Warning);
+
+            }
+            else
+            {
+                FormLog fLog = new FormLog();
+                var source = (AssetsInformation)((UCDataGridViewRow)row[0]).DataSource;
+                fLog.Code = source.AssetCode;
+                fLog.ShowDialog();
+            }
+        }
+
+        private void GetList(string searchStr = "")
         {
             using (var db = new AssetsInformationDB(dbPath))
             {
@@ -228,16 +259,6 @@ namespace WinForm.UI
                 DataGrid.DataSource = source;
                 DataGrid.ReloadSource();
             }
-        }
-
-        private void BtnPrintQr_BtnClick(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BtnLog_BtnClick(object sender, EventArgs e)
-        {
-
         }
     }
 
