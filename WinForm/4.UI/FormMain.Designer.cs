@@ -38,11 +38,12 @@
             this.BtnEdit = new HZH_Controls.Controls.UCBtnExt();
             this.BtnAdd = new HZH_Controls.Controls.UCBtnExt();
             this.ucPanelQuote2 = new HZH_Controls.Controls.UCPanelQuote();
+            this.label1 = new System.Windows.Forms.Label();
             this.BtnSearch = new HZH_Controls.Controls.UCBtnExt();
             this.TxtSearch = new HZH_Controls.Controls.TextBoxEx();
             this.ucPanelQuote3 = new HZH_Controls.Controls.UCPanelQuote();
             this.DataGrid = new HZH_Controls.Controls.UCDataGridView();
-            this.label1 = new System.Windows.Forms.Label();
+            this.ucPanelQuote4 = new HZH_Controls.Controls.UCPanelQuote();
             this.ucPanelQuote1.SuspendLayout();
             this.ucPanelQuote2.SuspendLayout();
             this.ucPanelQuote3.SuspendLayout();
@@ -93,6 +94,7 @@
             this.BtnLog.TabStop = false;
             this.BtnLog.TipsColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(30)))), ((int)(((byte)(99)))));
             this.BtnLog.TipsText = "";
+            this.BtnLog.BtnClick += new System.EventHandler(this.BtnLog_BtnClick);
             // 
             // BtnPrintQr
             // 
@@ -293,6 +295,15 @@
             this.ucPanelQuote2.Size = new System.Drawing.Size(864, 50);
             this.ucPanelQuote2.TabIndex = 8;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(25, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 17);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "资产名称：";
+            // 
             // BtnSearch
             // 
             this.BtnSearch.BackColor = System.Drawing.Color.White;
@@ -354,7 +365,7 @@
             this.ucPanelQuote3.Name = "ucPanelQuote3";
             this.ucPanelQuote3.Padding = new System.Windows.Forms.Padding(5, 1, 1, 1);
             this.ucPanelQuote3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ucPanelQuote3.Size = new System.Drawing.Size(864, 463);
+            this.ucPanelQuote3.Size = new System.Drawing.Size(864, 446);
             this.ucPanelQuote3.TabIndex = 8;
             // 
             // DataGrid
@@ -363,7 +374,6 @@
             this.DataGrid.BackColor = System.Drawing.Color.White;
             this.DataGrid.Columns = null;
             this.DataGrid.DataSource = null;
-            this.DataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DataGrid.HeadFont = new System.Drawing.Font("微软雅黑", 12F);
             this.DataGrid.HeadHeight = 40;
             this.DataGrid.HeadPadingLeft = 0;
@@ -374,17 +384,19 @@
             this.DataGrid.Name = "DataGrid";
             this.DataGrid.RowHeight = 40;
             this.DataGrid.RowType = typeof(HZH_Controls.Controls.UCDataGridViewRow);
-            this.DataGrid.Size = new System.Drawing.Size(858, 461);
+            this.DataGrid.Size = new System.Drawing.Size(858, 401);
             this.DataGrid.TabIndex = 0;
             // 
-            // label1
+            // ucPanelQuote4
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 17);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "资产名称：";
+            this.ucPanelQuote4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(245)))));
+            this.ucPanelQuote4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ucPanelQuote4.LeftColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.ucPanelQuote4.Location = new System.Drawing.Point(0, 625);
+            this.ucPanelQuote4.Name = "ucPanelQuote4";
+            this.ucPanelQuote4.Padding = new System.Windows.Forms.Padding(5, 1, 1, 1);
+            this.ucPanelQuote4.Size = new System.Drawing.Size(879, 29);
+            this.ucPanelQuote4.TabIndex = 9;
             // 
             // FormMain
             // 
@@ -394,6 +406,7 @@
             this.BorderStyleSize = 2;
             this.BorderStyleType = System.Windows.Forms.ButtonBorderStyle.Solid;
             this.ClientSize = new System.Drawing.Size(879, 654);
+            this.Controls.Add(this.ucPanelQuote4);
             this.Controls.Add(this.ucPanelQuote3);
             this.Controls.Add(this.ucPanelQuote2);
             this.Controls.Add(this.ucPanelQuote1);
@@ -406,6 +419,7 @@
             this.Controls.SetChildIndex(this.ucPanelQuote1, 0);
             this.Controls.SetChildIndex(this.ucPanelQuote2, 0);
             this.Controls.SetChildIndex(this.ucPanelQuote3, 0);
+            this.Controls.SetChildIndex(this.ucPanelQuote4, 0);
             this.ucPanelQuote1.ResumeLayout(false);
             this.ucPanelQuote2.ResumeLayout(false);
             this.ucPanelQuote2.PerformLayout();
@@ -431,5 +445,6 @@
         private HZH_Controls.Controls.UCBtnExt BtnSearch;
         private HZH_Controls.Controls.UCDataGridView DataGrid;
         private System.Windows.Forms.Label label1;
+        private HZH_Controls.Controls.UCPanelQuote ucPanelQuote4;
     }
 }

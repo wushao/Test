@@ -234,6 +234,11 @@ namespace WinForm.UI
         {
 
         }
+
+        private void BtnLog_BtnClick(object sender, EventArgs e)
+        {
+
+        }
     }
 
     
