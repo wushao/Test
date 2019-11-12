@@ -24,6 +24,8 @@ namespace WinForm.UI
 
         private void FormMain_Load(object sender, EventArgs e)
         {
+            ucPagerControl21.ShowSourceChanged += ucPagerControl21_ShowSourceChanged;
+
             List<DataGridViewColumnEntity> lstCulumns = new List<DataGridViewColumnEntity>();
             lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "id", HeadText = "序号", Width = 70, WidthType = SizeType.Absolute });
             lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "AssetName", HeadText = "资产名称", Width = 50, WidthType = SizeType.Percent });
@@ -260,25 +262,25 @@ namespace WinForm.UI
                 //DataGrid.DataSource = source;
                 //DataGrid.ReloadSource();
 
-                List<object> source = new List<object>();
+                List<AssetsInformation> source = new List<AssetsInformation>();
                 if (!string.IsNullOrWhiteSpace(searchStr))
                 {
-                    source = db.Query<object>($"select * from assetsinformation where AssetName like '%{searchStr}%'");
+                    source = db.Query<AssetsInformation>($"select * from assetsinformation where AssetName like '%{searchStr}%'");
                 }
                 else
                 {
-                    source = db.Query<object>("select * from assetsinformation");
+                    source = db.Query<AssetsInformation>("select * from assetsinformation");
                 }
                 ucPagerControl21.PageSize = 1;
-                ucPagerControl21.DataSource = source;
-                DataGrid.DataSource = ucPagerControl21.GetCurrentSource();
-                DataGrid.ReloadSource();
+                ucPagerControl21.DataSource = source.ToList<object>();
+               
             }
         }
 
         private void ucPagerControl21_ShowSourceChanged(object currentSource)
         {
-           
+            DataGrid.DataSource = currentSource as List<AssetsInformation>;
+            //DataGrid.ReloadSource();
         }
     }
 
