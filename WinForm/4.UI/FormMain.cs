@@ -247,18 +247,38 @@ namespace WinForm.UI
         {
             using (var db = new AssetsInformationDB(dbPath))
             {
-                List<AssetsInformation> source = new List<AssetsInformation>();
+                //List<AssetsInformation> source = new List<AssetsInformation>();
+                //if (!string.IsNullOrWhiteSpace(searchStr))
+                //{
+                //    source = db.Query<AssetsInformation>($"select * from assetsinformation where AssetName like '%{searchStr}%'");
+                //}
+                //else
+                //{
+                //    source = db.Query<AssetsInformation>("select * from assetsinformation");
+                //}
+
+                //DataGrid.DataSource = source;
+                //DataGrid.ReloadSource();
+
+                List<object> source = new List<object>();
                 if (!string.IsNullOrWhiteSpace(searchStr))
                 {
-                    source = db.Query<AssetsInformation>($"select * from assetsinformation where AssetName like '%{searchStr}%'");
+                    source = db.Query<object>($"select * from assetsinformation where AssetName like '%{searchStr}%'");
                 }
                 else
                 {
-                    source = db.Query<AssetsInformation>("select * from assetsinformation");
+                    source = db.Query<object>("select * from assetsinformation");
                 }
-                DataGrid.DataSource = source;
+                ucPagerControl21.PageSize = 1;
+                ucPagerControl21.DataSource = source;
+                DataGrid.DataSource = ucPagerControl21.GetCurrentSource();
                 DataGrid.ReloadSource();
             }
+        }
+
+        private void ucPagerControl21_ShowSourceChanged(object currentSource)
+        {
+           
         }
     }
 

@@ -44,6 +44,7 @@
             this.ucPanelQuote3 = new HZH_Controls.Controls.UCPanelQuote();
             this.DataGrid = new HZH_Controls.Controls.UCDataGridView();
             this.ucPanelQuote4 = new HZH_Controls.Controls.UCPanelQuote();
+            this.ucPagerControl21 = new HZH_Controls.Controls.UCPagerControl2();
             this.ucPanelQuote1.SuspendLayout();
             this.ucPanelQuote2.SuspendLayout();
             this.ucPanelQuote3.SuspendLayout();
@@ -359,6 +360,7 @@
             // 
             this.ucPanelQuote3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ucPanelQuote3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(245)))));
+            this.ucPanelQuote3.Controls.Add(this.ucPagerControl21);
             this.ucPanelQuote3.Controls.Add(this.DataGrid);
             this.ucPanelQuote3.LeftColor = System.Drawing.Color.Green;
             this.ucPanelQuote3.Location = new System.Drawing.Point(5, 179);
@@ -397,6 +399,21 @@
             this.ucPanelQuote4.Padding = new System.Windows.Forms.Padding(5, 1, 1, 1);
             this.ucPanelQuote4.Size = new System.Drawing.Size(879, 29);
             this.ucPanelQuote4.TabIndex = 9;
+            // 
+            // ucPagerControl21
+            // 
+            this.ucPagerControl21.BackColor = System.Drawing.Color.White;
+            this.ucPagerControl21.DataSource = null;
+            this.ucPagerControl21.Location = new System.Drawing.Point(5, 401);
+            this.ucPagerControl21.Name = "ucPagerControl21";
+            this.ucPagerControl21.PageCount = 0;
+            this.ucPagerControl21.PageIndex = 1;
+            this.ucPagerControl21.PageModel = HZH_Controls.Controls.PageModel.Soure;
+            this.ucPagerControl21.PageSize = 3;
+            this.ucPagerControl21.Size = new System.Drawing.Size(858, 41);
+            this.ucPagerControl21.StartIndex = 0;
+            this.ucPagerControl21.TabIndex = 1;
+            this.ucPagerControl21.ShowSourceChanged += new HZH_Controls.Controls.PageControlEventHandler(this.ucPagerControl21_ShowSourceChanged);
             // 
             // FormMain
             // 
@@ -446,5 +463,6 @@
         private HZH_Controls.Controls.UCDataGridView DataGrid;
         private System.Windows.Forms.Label label1;
         private HZH_Controls.Controls.UCPanelQuote ucPanelQuote4;
+        private HZH_Controls.Controls.UCPagerControl2 ucPagerControl21;
     }
 }
