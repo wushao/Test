@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.ucPanelQuote1 = new HZH_Controls.Controls.UCPanelQuote();
             this.BtnLog = new HZH_Controls.Controls.UCBtnExt();
             this.BtnPrintQr = new HZH_Controls.Controls.UCBtnExt();
@@ -42,9 +43,9 @@
             this.BtnSearch = new HZH_Controls.Controls.UCBtnExt();
             this.TxtSearch = new HZH_Controls.Controls.TextBoxEx();
             this.ucPanelQuote3 = new HZH_Controls.Controls.UCPanelQuote();
+            this.ucPagerControl21 = new HZH_Controls.Controls.UCPagerControl2();
             this.DataGrid = new HZH_Controls.Controls.UCDataGridView();
             this.ucPanelQuote4 = new HZH_Controls.Controls.UCPanelQuote();
-            this.ucPagerControl21 = new HZH_Controls.Controls.UCPagerControl2();
             this.ucPanelQuote1.SuspendLayout();
             this.ucPanelQuote2.SuspendLayout();
             this.ucPanelQuote3.SuspendLayout();
@@ -370,13 +371,28 @@
             this.ucPanelQuote3.Size = new System.Drawing.Size(864, 446);
             this.ucPanelQuote3.TabIndex = 8;
             // 
+            // ucPagerControl21
+            // 
+            this.ucPagerControl21.BackColor = System.Drawing.Color.White;
+            this.ucPagerControl21.DataSource = ((System.Collections.Generic.List<object>)(resources.GetObject("ucPagerControl21.DataSource")));
+            this.ucPagerControl21.Location = new System.Drawing.Point(5, 401);
+            this.ucPagerControl21.Name = "ucPagerControl21";
+            this.ucPagerControl21.PageCount = 0;
+            this.ucPagerControl21.PageIndex = 1;
+            this.ucPagerControl21.PageModel = HZH_Controls.Controls.PageModel.Soure;
+            this.ucPagerControl21.PageSize = 3;
+            this.ucPagerControl21.Size = new System.Drawing.Size(858, 41);
+            this.ucPagerControl21.StartIndex = 0;
+            this.ucPagerControl21.TabIndex = 1;
+            this.ucPagerControl21.ShowSourceChanged += new HZH_Controls.Controls.PageControlEventHandler(this.ucPagerControl21_ShowSourceChanged);
+            // 
             // DataGrid
             // 
             this.DataGrid.AutoScroll = true;
             this.DataGrid.BackColor = System.Drawing.Color.White;
             this.DataGrid.Columns = null;
             this.DataGrid.DataSource = null;
-            this.DataGrid.HeadFont = new System.Drawing.Font("微软雅黑", 12F);
+            this.DataGrid.HeadFont = new System.Drawing.Font("微软雅黑", 10F);
             this.DataGrid.HeadHeight = 40;
             this.DataGrid.HeadPadingLeft = 0;
             this.DataGrid.HeadTextColor = System.Drawing.Color.Black;
@@ -399,21 +415,6 @@
             this.ucPanelQuote4.Padding = new System.Windows.Forms.Padding(5, 1, 1, 1);
             this.ucPanelQuote4.Size = new System.Drawing.Size(879, 29);
             this.ucPanelQuote4.TabIndex = 9;
-            // 
-            // ucPagerControl21
-            // 
-            this.ucPagerControl21.BackColor = System.Drawing.Color.White;
-            this.ucPagerControl21.DataSource = null;
-            this.ucPagerControl21.Location = new System.Drawing.Point(5, 401);
-            this.ucPagerControl21.Name = "ucPagerControl21";
-            this.ucPagerControl21.PageCount = 0;
-            this.ucPagerControl21.PageIndex = 1;
-            this.ucPagerControl21.PageModel = HZH_Controls.Controls.PageModel.Soure;
-            this.ucPagerControl21.PageSize = 3;
-            this.ucPagerControl21.Size = new System.Drawing.Size(858, 41);
-            this.ucPagerControl21.StartIndex = 0;
-            this.ucPagerControl21.TabIndex = 1;
-            this.ucPagerControl21.ShowSourceChanged += new HZH_Controls.Controls.PageControlEventHandler(this.ucPagerControl21_ShowSourceChanged);
             // 
             // FormMain
             // 

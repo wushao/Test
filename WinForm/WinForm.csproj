@@ -98,7 +98,9 @@
   <ItemGroup>
     <Compile Include="0.Common\ChangeDataHelper.cs" />
     <Compile Include="0.Common\DbHelperSQLite.cs" />
+    <Compile Include="0.Common\DirFileHelper.cs" />
     <Compile Include="0.Common\ExcelHelper.cs" />
+    <Compile Include="0.Common\FileHelper.cs" />
     <Compile Include="0.Common\PrintHelper.cs" />
     <Compile Include="0.Common\QRCodeHelper.cs" />
     <Compile Include="1.Model\AssetsInformationModel.cs" />

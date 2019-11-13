@@ -22,7 +22,8 @@ namespace WinForm.UI.WinUserControl
         {
             if (obj is AssetsInformation)
             {
-                this.BackgroundImage = Image.FromFile((obj as AssetsInformation).QdPath);
+                var path = (obj as AssetsInformation).QdPath;
+                this.BackgroundImage = Image.FromFile(path);
             }
         }
     }

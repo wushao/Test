@@ -26,17 +26,19 @@ namespace WinForm.UI
         {
             ucPagerControl21.ShowSourceChanged += ucPagerControl21_ShowSourceChanged;
 
+            this.DataGrid.RowHeight = 200;
+        
             List<DataGridViewColumnEntity> lstCulumns = new List<DataGridViewColumnEntity>();
-            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "id", HeadText = "序号", Width = 70, WidthType = SizeType.Absolute });
-            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "AssetName", HeadText = "资产名称", Width = 50, WidthType = SizeType.Percent });
-            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "AssetCode", HeadText = "资产编码", Width = 50, WidthType = SizeType.Percent });
-            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "ManagementDepartment", HeadText = "管理部门", Width = 50, WidthType = SizeType.Percent });
-            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "UseDepartment", HeadText = "使用部门", Width = 50, WidthType = SizeType.Percent });
-            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "UseState", HeadText = "使用状态", Width = 50, WidthType = SizeType.Percent });
-            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "UseDate", HeadText = "使用年限", Width = 50, WidthType = SizeType.Percent });
-            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "UsePlace", HeadText = "使用地点", Width = 50, WidthType = SizeType.Percent });
-            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "InstallationDate", HeadText = "安装日期", Width = 100, WidthType = SizeType.Percent });
-            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "QdPath", HeadText = "二维码", Width = 100, WidthType = SizeType.Percent, CustomCellType = typeof(WinUserControl.GridTable_ImageCell) });
+            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "id", HeadText = "序号", Width = 50, WidthType = SizeType.Absolute, TextAlign= ContentAlignment.MiddleCenter  });
+            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "AssetName", HeadText = "资产名称", Width = 70, WidthType = SizeType.Percent, TextAlign = ContentAlignment.MiddleCenter });
+            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "AssetCode", HeadText = "资产编码", Width = 70, WidthType = SizeType.Percent, TextAlign = ContentAlignment.MiddleCenter });
+            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "ManagementDepartment", HeadText = "管理部门", Width = 70, WidthType = SizeType.Percent, TextAlign = ContentAlignment.MiddleCenter });
+            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "UseDepartment", HeadText = "使用部门", Width = 70, WidthType = SizeType.Percent, TextAlign = ContentAlignment.MiddleCenter });
+            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "UseState", HeadText = "使用状态", Width = 70, WidthType = SizeType.Percent, TextAlign = ContentAlignment.MiddleCenter });
+            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "UseDate", HeadText = "使用年限", Width = 70, WidthType = SizeType.Percent, TextAlign = ContentAlignment.MiddleCenter });
+            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "UsePlace", HeadText = "使用地点", Width = 70, WidthType = SizeType.Percent, TextAlign = ContentAlignment.MiddleCenter });
+            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "InstallationDate", HeadText = "安装日期", Width = 100, WidthType = SizeType.Percent, TextAlign = ContentAlignment.MiddleCenter });
+            lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "QdPath", HeadText = "二维码", Width = 200, WidthType = SizeType.Percent, CustomCellType = typeof(WinUserControl.GridTable_ImageCell), TextAlign = ContentAlignment.MiddleCenter });
             //lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "AssetModel", HeadText = "资产型号", Width = 50, WidthType = SizeType.Percent, Format = (a) => { return ((DateTime)a).ToString("yyyy-MM-dd"); } });
             //lstCulumns.Add(new DataGridViewColumnEntity() { DataField = "Sex", HeadText = "性别", Width = 50, WidthType = SizeType.Percent, Format = (a) => { return ((int)a) == 0 ? "女" : "男"; } });
             this.DataGrid.Columns = lstCulumns;
@@ -94,6 +96,7 @@ namespace WinForm.UI
                                     entity.UseDate = row["使用年限"]?.ToString();
                                     entity.UsePlace = row["使用地点"]?.ToString();
                                     entity.InstallationDate = Convert.ToDateTime(row["安装日期"]?.ToString()).ToLongDateString();
+                                    entity.QdPath = $"{Environment.CurrentDirectory}\\NoBackPic.png";
                                     list.Add(entity);
                                 }
 
@@ -101,11 +104,10 @@ namespace WinForm.UI
                                 {
                                     int count = db.InsertAll(list);
                                     var source = db.Query<AssetsInformation>("select * from assetsinformation");
-                                    DataGrid.DataSource = source;
-                                    DataGrid.ReloadSource();
                                     FrmTips.ShowTips(this, $"导入{count}条记录", 3000, true, ContentAlignment.MiddleCenter, null, TipsSizeMode.Large, new Size(300, 100), TipsState.Success);
                                 }
-
+                                GetList();
+                               
                             }
                         }
                     }
@@ -216,11 +218,23 @@ namespace WinForm.UI
                     using (var db = new AssetsInformationDB(dbPath))
                     {
                         db.Query<AssetsInformation>($"delete from assetsinformation where id in ({ids})");
+                        
                     }
+                    GetList();
+                    //rows.ForEach(p =>
+                    //{
+                    //    if (!string.IsNullOrWhiteSpace(((AssetsInformation)((UCDataGridViewRow)p).DataSource).QdPath))
+                    //    {
+                    //        if (File.Exists(((AssetsInformation)((UCDataGridViewRow)p).DataSource).QdPath))
+                    //        {
+                    //            FileHelper.FileDel(((AssetsInformation)((UCDataGridViewRow)p).DataSource).QdPath);
+                    //        }
+                    //    }
 
+                    //});
                     FrmTips.ShowTips(this, $"删除成功！", 3000, true, ContentAlignment.MiddleCenter, null,
                         TipsSizeMode.Large, new Size(200, 80), TipsState.Success);
-                    GetList();
+                    
                 }
             }
             
@@ -234,7 +248,6 @@ namespace WinForm.UI
             if (row == null || row.Count == 0 || row.Count > 1)
             {
                 FrmTips.ShowTips(this, "请选择单条记录！", 3000, true, ContentAlignment.MiddleCenter, null, TipsSizeMode.Large, new Size(150, 80), TipsState.Warning);
-
             }
             else
             {
@@ -271,16 +284,18 @@ namespace WinForm.UI
                 {
                     source = db.Query<AssetsInformation>("select * from assetsinformation");
                 }
-                ucPagerControl21.PageSize = 1;
+                ucPagerControl21.Reload();
+                ucPagerControl21.PageSize = 3;
                 ucPagerControl21.DataSource = source.ToList<object>();
-               
+
             }
         }
 
         private void ucPagerControl21_ShowSourceChanged(object currentSource)
         {
-            DataGrid.DataSource = currentSource as List<AssetsInformation>;
-            //DataGrid.ReloadSource();
+            DataGrid.ReloadSource();
+            DataGrid.DataSource = currentSource;
+            
         }
     }
 

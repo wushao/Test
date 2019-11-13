@@ -21,8 +21,8 @@ namespace WinForm.Common
             //设置内容编码
             options.CharacterSet = "UTF-8";
             //设置二维码的宽度和高度
-            options.Width = 500;
-            options.Height = 500;
+            options.Width =200;
+            options.Height = 200;
             //设置二维码的边距,单位不是固定像素
             options.Margin = 1;
             writer.Options = options;

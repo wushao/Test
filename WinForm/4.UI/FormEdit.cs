@@ -130,6 +130,7 @@ namespace WinForm.UI
                 string msg = string.Empty;
                 if (Item != null)
                 {
+                    model.QdPath = $"{Environment.CurrentDirectory}\\NoBackPic.png";
                     db.Insert(model);
                     msg = $" 新增成功！";
                 }
