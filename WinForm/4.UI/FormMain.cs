@@ -153,8 +153,8 @@ namespace WinForm.UI
                         {
                             item.QdPath = QRCodeHelper.CreateQRCodeImage(new QRCodeMsg()
                             {
-                                Content = $"{item.AssetName}\r\n{item.AssetCode}\r\n{item.AssetModel}\r\n{item.ManagementDepartment}\r\n{item.UseDepartment}\r\n{item.UseState}\r\n{item.UseDate}\r\n{item.UsePlace}\r\n{item.InstallationDate}",
-                                ImageName = $"{item.AssetCode}{DateTime.Now.ToLongDateString()}",
+                                Content = $"资产编码：{item.AssetCode}\r\n资产名称：{item.AssetName}\r\n资产类型：{item.AssetModel}\r\n管理部门：{item.ManagementDepartment}\r\n使用部门：{item.UseDepartment}\r\n使用状态：{item.UseState}\r\n使用年限：{item.UseDate}\r\n使用地点：{item.UsePlace}\r\n安装日期：{item.InstallationDate}",
+                                ImageName = $"{item.AssetCode}{DateTime.Now.ToLongDateString()}{DateTime.Now.Hour}{DateTime.Now.Minute}{DateTime.Now.Second}",
                                 FilePath = $"{Environment.CurrentDirectory}"
                             });
                         }
