@@ -59,5 +59,25 @@ namespace WinForm.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap ClearFieldImage {
+            get {
+                object obj = ResourceManager.GetObject("ClearFieldImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap SelectRowImage {
+            get {
+                object obj = ResourceManager.GetObject("SelectRowImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

@@ -139,6 +139,7 @@ namespace WinForm.UI
                     db.Update(model);
                     msg = $" 修改成功！";
                 }
+                AddLog(model);
                 RefreshActionn();
                 FrmTips.ShowTips(this, msg, 3000, true, ContentAlignment.MiddleCenter, null, TipsSizeMode.Large, new Size(200, 80), TipsState.Success);
                

@@ -118,6 +118,17 @@
     <Compile Include="1.Model\SourceModel.cs" />
     <Compile Include="2.DAL\AssetsInformationDB.cs" />
     <Compile Include="2.DAL\LogInformationDB.cs" />
+    <Compile Include="4.UI\DataDescriptors\ColumnDataDescriptor.cs" />
+    <Compile Include="4.UI\DataDescriptors\FieldDescriptor.cs" />
+    <Compile Include="4.UI\DataDescriptors\FieldGroupDescriptor.cs" />
+    <Compile Include="4.UI\DataDescriptors\United.cs" />
+    <Compile Include="4.UI\Extenders\DataGridView\ColumnsGenerator.cs" />
+    <Compile Include="4.UI\Extenders\DataGridView\ColumnStyles.cs" />
+    <Compile Include="4.UI\Extenders\DataGridView\Drawing.cs" />
+    <Compile Include="4.UI\Extenders\DataGridView\Preparations.cs" />
+    <Compile Include="4.UI\Extenders\FlowLayoutPanel\GroupsGenerator.cs" />
+    <Compile Include="4.UI\Extenders\Settings.cs" />
+    <Compile Include="4.UI\Extenders\TableLayoutPanel\FieldsGenerator.cs" />
     <Compile Include="4.UI\FormEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +153,33 @@
     <Compile Include="4.UI\FormPrint.Designer.cs">
       <DependentUpon>FormPrint.cs</DependentUpon>
     </Compile>
+    <Compile Include="4.UI\Forms\BitMaskCheckedListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="4.UI\Forms\BitMaskCheckedListBox.Designer.cs">
+      <DependentUpon>BitMaskCheckedListBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="4.UI\Forms\FormServices.cs" />
+    <Compile Include="4.UI\Forms\HeaderTableLayoutPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="4.UI\Forms\HeaderTableLayoutPanel.Designer.cs">
+      <DependentUpon>HeaderTableLayoutPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="4.UI\Forms\PromptedTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="4.UI\Forms\PromptedTextBox.Designer.cs">
+      <DependentUpon>PromptedTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="4.UI\Forms\RowFilterBuilder.cs" />
+    <Compile Include="4.UI\Forms\SelectItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="4.UI\Forms\SelectItemForm.Designer.cs">
+      <DependentUpon>SelectItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="4.UI\Forms\SortableBindingList.cs" />
     <Compile Include="4.UI\WinUserControl\FormUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -205,6 +243,8 @@
     <Folder Include="3.BLL\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Image\ClearFieldImage.png" />
+    <Content Include="Image\SelectRowImage.png" />
     <Content Include="MetroFramework.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
