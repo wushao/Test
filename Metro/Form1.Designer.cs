@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
+            this.metroToolTip2 = new MetroFramework.Components.MetroToolTip();
             this.SuspendLayout();
             // 
             // Form1
@@ -41,6 +43,9 @@
         }
 
         #endregion
+
+        private MetroFramework.Components.MetroToolTip metroToolTip1;
+        private MetroFramework.Components.MetroToolTip metroToolTip2;
     }
 }
 

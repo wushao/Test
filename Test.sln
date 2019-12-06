@@ -101,6 +101,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QrCode", "QrCode\QrCode.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metro", "Metro\Metro.csproj", "{4259BA31-66BA-43FE-AD4B-A1FA036702E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6.Async_Await", "Async_Await\6.Async_Await.csproj", "{1AF25A34-98AF-4E7F-B756-19E722CB43A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -239,6 +241,10 @@ Global
 		{4259BA31-66BA-43FE-AD4B-A1FA036702E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4259BA31-66BA-43FE-AD4B-A1FA036702E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4259BA31-66BA-43FE-AD4B-A1FA036702E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AF25A34-98AF-4E7F-B756-19E722CB43A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AF25A34-98AF-4E7F-B756-19E722CB43A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AF25A34-98AF-4E7F-B756-19E722CB43A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AF25A34-98AF-4E7F-B756-19E722CB43A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -281,6 +287,7 @@ Global
 		{2DE94E21-7C10-4EB1-B4BC-46EF4685549A} = {C1DEF521-68D6-40F0-A799-9C16EB692BE5}
 		{81F100F2-69A6-4555-B0CB-5D53C5B2BA52} = {6EAC8D4B-C795-457A-80C4-4DF10F7C3F43}
 		{4259BA31-66BA-43FE-AD4B-A1FA036702E9} = {C1DEF521-68D6-40F0-A799-9C16EB692BE5}
+		{1AF25A34-98AF-4E7F-B756-19E722CB43A2} = {85CD30CA-8FEF-4F83-989A-FA9C7EFE5F91}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FF4B2665-B2F2-40C1-8C5D-A3886389B2A6}
